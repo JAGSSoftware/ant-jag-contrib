@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+    Copyright (C) 2013 Jose A. Garcia Sanchez
+
+    This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
+    License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
+    version.
+
+    This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+    warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License along with this program. If not, see
+    <http://www.gnu.org/licenses/>.
+-->
+
+<antlib xmlns:antcontrib="antlib:net.sf.antcontrib" xmlns:current="ant:current">
+
+	<macrodef name="init">
+		<attribute name="dir" default="."/>
+		<attribute name="file" default="${ant.project.name}_${DSTAMP}${TSTAMP}.log"/>
+		<sequential>
+			<antcontrib:if>
+				<isfalse value="${is.logger.initialized}"/>
+				<then>
+					<tstamp/>
+					<property name="logfile" value="@{dir}/@{file}"/>
+					<property name="is.logger.initialized" value="true"/>
+				</then>
+			</antcontrib:if>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="logger">
+		<attribute name="level"/>
+		<text name="message"/>
+		<sequential>
+			<antcontrib:var name="TSTAMP_LOG" unset="true" />
+			<tstamp>
+				<format property="TSTAMP_LOG" pattern="yyyy-MM-dd HH:mm:ss" />
+			</tstamp>
+
+
+			<antcontrib:var name="invoker" unset="true"/>
+			<antcontrib:if>
+				<isset property="ant.project.invoked-targets"/>
+				<then>
+					<property name="invoker" value="${ant.project.invoked-targets}"/>
+				</then>
+				<else>
+					<property name="invoker" value="_global_"/>
+				</else>
+			</antcontrib:if>
+
+			<antcontrib:var name="logMessage" unset="true"/>
+			<property name="logMessage" value="${TSTAMP_LOG} [${ant.project.name}#${invoker}] (@{level}): @{message}"/>
+
+			<antcontrib:if>
+				<istrue value="${is.logger.initialized}"/>
+				<then>
+				 	<echo level="@{level}" file="${logfile}" append="true">${logMessage}</echo>
+					<echo level="@{level}" file="${logfile}" append="true"/>
+				</then>
+				<else>
+				 	<echo level="@{level}">${logMessage}</echo>
+				</else>
+			</antcontrib:if>
+		</sequential>
+	</macrodef>
+
+	<presetdef name="error">
+		<current:logger level="error">@{message}</current:logger>
+	</presetdef>
+
+	<presetdef name="warn">
+		<current:logger level="warning">@{message}</current:logger>
+	</presetdef>
+
+	<presetdef name="info">
+		<current:logger level="info">@{message}</current:logger>
+	</presetdef>
+
+	<presetdef name="verbose">
+		<current:logger level="verbose">@{message}</current:logger>
+	</presetdef>
+
+	<presetdef name="debug">
+		<current:logger level="debug">@{message}</current:logger>
+	</presetdef>
+</antlib>

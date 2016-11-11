@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Copyright (C) 2013 Jose A. Garcia Sanchez
+
+    This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
+    License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
+    version.
+
+    This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+    warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License along with this program. If not, see
+    <http://www.gnu.org/licenses/>.
+ -->
+<antlib 
+	xmlns:antcontrib="antlib:net.sf.antcontrib"
+	xmlns:log="antlib:org.jag.common.log"
+	xmlns:current="ant:current">
+
+	<macrodef name="readBundleSymbolicName">
+		<attribute name="plugin.dir"/>
+		<sequential>
+			<log:warn>Use read.BundleSymbolicName instead</log:warn>
+			<current:read.BundleSymbolicName manifest="@{plugin.dir}"/>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="read.BundleSymbolicName">
+		<attribute name="plugin.dir"/>
+		
+		<sequential>
+			<loadproperties srcFile="@{plugin.dir}/META-INF/MANIFEST.MF">
+				<filterchain>
+					<linecontains>
+						<contains value="Bundle-SymbolicName"/>
+					</linecontains>
+				</filterchain>
+			</loadproperties>
+			<antcontrib:propertyregex property="Bundle-SymbolicName" override="true" input="${Bundle-SymbolicName}" regexp="(.*);.*" select="\1"/>
+			<log:debug>Bundle-SymbolicName: ${Bundle-SymbolicName}</log:debug>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="readBundleVersion">
+		<attribute name="plugin.dir"/>
+		<sequential>
+			<log:warn>Use read.BundleVersion instead</log:warn>
+			<current:read.BundleVersion manifest="@{plugin.dir}"/>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="read.BundleVersion">
+		<attribute name="plugin.dir"/>
+		<sequential>
+			<loadproperties srcFile="@{plugin.dir}/META-INF/MANIFEST.MF">
+				<filterchain>
+					<linecontains>
+						<contains value="Bundle-Version"/>
+					</linecontains>
+				</filterchain>
+			</loadproperties>
+
+			<tstamp>
+				<format property="TSTAMP_QUALIFIER" pattern="yyyyMMdd-HHmmss"/>
+			</tstamp>
+			
+			<antcontrib:propertyregex property="Bundle-Version" override="true" input="${Bundle-Version}" regexp="(\d(\.\d)*)\.qualifier" replace="\1.${TSTAMP_QUALIFIER}"/>
+			<log:debug>Bundle-Version: ${Bundle-Version}</log:debug>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="read.build.properties">
+		<attribute name="plugin.dir"/>
+		<sequential>
+			<antcontrib:var name="bin.includes" unset="true"/>
+			<loadproperties srcFile="@{plugin.dir}/build.properties"/>
+		</sequential>
+	</macrodef>
+</antlib>
