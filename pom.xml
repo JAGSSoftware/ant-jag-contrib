@@ -4,8 +4,8 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jag</groupId>
-  <artifactId>antcontrib</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <artifactId>ant-jag-contrib</artifactId>
+  <version>1.0.0</version>
 
   <dependencies>
       <dependency>
