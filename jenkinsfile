@@ -2,14 +2,9 @@ pipeline {
 	agent any
 
 	stages {
-		def mvnHome
-	
 		stage('Build') {
-			// Run the maven build
-			if (isUnix()) {
-				sh "'${mvnHome}/bin/mvn' clean package"
-			} else {
-				bat(/"${mvnHome}\bin\mvn" clean package/)
+			steps {
+				sh 'mvn clean package'
 			}
 		}
 	
