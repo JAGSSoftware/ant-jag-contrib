@@ -1,0 +1,8 @@
+{
+	"files": [
+		{
+			"pattern": "target/ant-jag-contrib-*.jar",
+			"target": "libs-release-local"
+		}
+	]
+}

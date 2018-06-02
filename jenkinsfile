@@ -1,0 +1,31 @@
+pipeline {
+	agent any
+
+	stages {
+		def mvnHome
+	
+		stage('Build') {
+			// Run the maven build
+			if (isUnix()) {
+				sh "'${mvnHome}/bin/mvn' clean package"
+			} else {
+				bat(/"${mvnHome}\bin\mvn" clean package/)
+			}
+		}
+	
+		stage('Archive') {
+			steps {
+				archive 'target/*.jar'
+
+				archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+				script {
+					def server = Artifactory.server 'artifactory.mynet'
+					def uploadSpec = readFile 'resources/uploadFiles.json'
+					def buildInfo = server.upload spec: uploadSpec
+
+					server.publishBuildInfo buildInfo      
+				}
+			}
+		}
+	}
+}
