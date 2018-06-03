@@ -11,11 +11,9 @@ pipeline {
 //			image 'maven:3.3.3'
 //		}
 //	}
-	agent {
-		node {
-			label 'maven 3.3.3'
-//		    mvnHome tool 'maven 3.3.3'
-		}
+	agent any
+	tools {
+		maven 'maven 3.5.3'	    
 	}
 
 	stages {
