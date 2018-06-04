@@ -43,9 +43,9 @@ the location of the tasks definition:
 
 > <project xmlns:log="antlib:org.jag.common.log" name="...">
 
-#### init
+#### `init`
 
-Description: Initializes the logger. It must come among the first lines in the [Ant] script
+* Description: Initializes the logger. It must come among the first lines in the [Ant] script
 
 Parameter | Mandatory | Default value | Description
 --- | --- | --- | ---
