@@ -25,8 +25,6 @@ pipeline {
 	
 		stage('Archive') {
 			steps {
-				archive 'target/*.jar'
-
 				archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
 				script {
 					def server = Artifactory.server 'artifactory.mynet'
