@@ -35,19 +35,19 @@ Currently are implemented the following categories:
 
 ### log
 
-* Description: These are contributed tasks for logging the [Ant] target or operations.
-* **xmlns**: antlib:org.jag.common.log
+Description: These are contributed tasks for logging the [Ant] target or operations.
+**xmlns**: antlib:org.jag.common.log
 
 The contribution of tasks is done introducing in the script `<project>` tag
 the location of the tasks definition:
 
-		<project xmlns:log="antlib:org.jag.common.log" name="...">
+	<project xmlns:log="antlib:org.jag.common.log" name="...">
 
-#### `init`
+* `init`
+	* Description: Initializes the logger. It must come among the first lines in the [Ant] script
+	*
+	Parameter | Mandatory | Default value | Description
+	--- | --- | --- | ---
+	`dir` | Optional | Current directory, `.` |  Directory where to write the logs to.
+	`file` | Optional | `${ant.project.name}_${DSTAMP}${TSTAMP}.log` | Log file where to write the log entries to.
 
-* Description: Initializes the logger. It must come among the first lines in the [Ant] script
-
-Parameter | Mandatory | Default value | Description
---- | --- | --- | ---
-`dir` | Optional | Current directory, `.` |  Directory where to write the logs to.
-`file` | Optional | `${ant.project.name}_${DSTAMP}${TSTAMP}.log` | Log file where to write the log entries to.
