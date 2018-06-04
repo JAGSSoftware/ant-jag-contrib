@@ -4,7 +4,7 @@
 [maven]: https://maven.apache.org/
 
 
-# ant-jab-contrib
+# ant-jag-contrib
 
 This is an extension of [ant-contrib] with contributed tasks.
 
@@ -65,13 +65,10 @@ Currently are implemented the following categories:
 	<tr>
 		<th>Example</th>
 		<td colspan="3">
-			<![CDATA[
-				<project xmlns:log="antlib:org.jag.common.log" name="my_project">
-					<log:init/>
-					
-					...
-				</project>
-			]]>
+			<![CDATA[<project xmlns:log="antlib:org.jag.common.log" name="my_project">]]>
+			<![CDATA[		<log:init/>]]>
+			<![CDATA[		...]]>
+			<![CDATA</project>]]>
 		</td>
 	</tr>
 </table>
