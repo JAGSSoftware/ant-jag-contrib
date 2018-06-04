@@ -35,42 +35,19 @@ Currently are implemented the following categories:
 
 ### log
 
-<table>
-	<tr>
-		<th>Task</th><td colspan="3"><code>init</code></td>
-	</tr>
-	<tr>
-		<th rowspan="2">Parameter</th>
-		<td><code>dir<code></td>
-		<td>optional, default value is current directory</td>
-		<td>Directory where to write the logs to.</td>
-	</tr>
-	<tr>
-		<td><code>file</code></td>
-		<td>optional, default value is <code>${ant.project.name}_${DSTAMP}${TSTAMP}.log</code></td>
-		<td>Log file where to write the log entries to.</td>
-	</tr>
-	<tr>
-		<th>Body</th>
-		<td colspan="3">N/A</td>
-	</tr>
-	<tr>
-		<th>xmlns</th>
-		<td colspan="3"><code>antlib:org.jag.common.log</code></td>
-	</tr>
-	<tr>
-		<th>Description</th>
-		<td colspan="3">Initializes the logger. It must come among the first lines in the [Ant] script</td>
-	</tr>
-	<tr>
-		<th>Example</th>
-		<td colspan="3">
-<pre>
-&lt;project xmlns:log="antlib:org.jag.common.log" name="my_project"&gt;
-	&lt;log:init/&gt;
-	...
-&lt;/project&gt;
-</pre>
-		</td>
-	</tr>
-</table>
+* Description: These are contributed tasks for logging the [Ant] target or operations.
+* **xmlns**: antlib:org.jag.common.log
+
+The contribution of tasks is done introducing in the script `<project>` tag
+the location of the tasks definition:
+
+> <project xmlns:log="antlib:org.jag.common.log" name="...">
+
+#### init
+
+Description: Initializes the logger. It must come among the first lines in the [Ant] script
+
+Parameter | Mandatory | Default value | Description
+--- | --- | --- | ---
+`dir` | Optional | Current directory, `.` |  Directory where to write the logs to.
+`file` | Optional | `${ant.project.name}_${DSTAMP}${TSTAMP}.log` | Log file where to write the log entries to.
