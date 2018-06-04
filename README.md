@@ -28,7 +28,7 @@ tasks.
 ## Tasks
 Currently are implemented the following categories:
 
-* [log](log/README.md)
+* [log](src/main/resources/org/jag/common/log/README.md)
 * [property](#property)
 * [build](#build)
 * [plugin](#plugin)
