@@ -49,10 +49,12 @@ by logging level.
 * `init`
 	* Description: Initializes the logger. It must come among the first lines in the [Ant] script
 	* Parameters:
+
 	Parameter | Mandatory | Default value | Description
 	--- | --- | --- | ---
 	`dir` | Optional | Current directory, `.` |  Directory where to write the logs to.
 	`file` | Optional | `${ant.project.name}_${DSTAMP}${TSTAMP}.log` | Log file where to write the log entries to.
+
 	* Body: N/A
 	* Example:
 
@@ -61,9 +63,11 @@ by logging level.
 * `logger`
 	* Description: Writes a message with level `level` in logger
 	* Parameters:
+
 	Parameter | Mandatory | Default value | Description
 	--- | --- | --- | ---
 	level | Yes | N/A | Level of logging
+
 	* Body: Message to be written to logger
 	* Example:
 	
