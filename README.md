@@ -16,7 +16,7 @@ be checked in in the code repository. However with `ant-jag-contrib`, the
 task for building takes automatically the dependency, without further modifications.
 
 ## Dependency
-It requires the [`ant-contrib-1.0b2`] library installed in [Ant] classpath
+It requires the [ant-contrib-1.0b2] library installed in [Ant] classpath
 (`ANT_HOME/lib`, `${user.home}/.ant/lib`, etc.).
 
 ## Compilation and installation
@@ -65,10 +65,12 @@ Currently are implemented the following categories:
 	<tr>
 		<th>Example</th>
 		<td colspan="3">
-			<![CDATA[<project xmlns:log="antlib:org.jag.common.log" name="my_project">]]>
-			<![CDATA[		<log:init/>]]>
-			<![CDATA[		...]]>
-			<![CDATA</project>]]>
+<pre>
+&lt;project xmlns:log="antlib:org.jag.common.log" name="my_project"&gt;
+	&lt;log:init/&gt;
+	...
+&lt;/project&gt;
+</pre>
 		</td>
 	</tr>
 </table>
