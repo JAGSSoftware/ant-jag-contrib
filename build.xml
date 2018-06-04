@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ant-jag-contrib" basedir="." default="build">
+
+	<property file="build.properties" />
+
+	<target name="clean" description="Cleans the output">
+		<delete dir="${build.dir}"/>
+	</target>
+
+	<target name="prepare" description="Prepares the directory layout for building">
+		<mkdir dir="${build.dir}"/>
+	</target>
+	
+	<target name="copy:resources" depends="prepare">
+		<copy todir="${classes.dir}">
+			<fileset dir="${resources.main.dir}">
+				<include name="**/antlib.xml"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="build" description="Builds the project" depends="prepare, copy:resources"/>
+
+	<target name="package" description="Created a jar package" depends="build">
+		<jar destfile="${build.dir}/${ant.project.name}-${project.version}.jar" >
+			<fileset dir="${classes.dir}"/>
+		</jar>
+	</target>
+</project>
