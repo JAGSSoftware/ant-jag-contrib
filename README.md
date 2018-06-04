@@ -56,7 +56,7 @@ by logging level.
 	* Body: N/A
 	* Example:
 
-		<log:init/>
+			<log:init/>
 
 * `logger`
 	* Description: Writes a message with level `level` in logger
@@ -67,7 +67,7 @@ by logging level.
 	* Body: Message to be written to logger
 	* Example:
 	
-		<log:logger level="error">Message to log</log:logger>
+			<log:logger level="error">Message to log</log:logger>
 
 * `error`
 	* Description: Writes a message with level _error_ in logger
@@ -75,7 +75,7 @@ by logging level.
 	* Body: Message to be written to logger
 	* Example:
 	
-		<log:error>Message to log</log:error>
+			<log:error>Message to log</log:error>
 		
 * `warn`
 	* Description: Writes a message with level _warn_ in logger
@@ -83,7 +83,7 @@ by logging level.
 	* Body: Message to be written to logger
 	* Example:
 	
-		<log:warn>Message to log</log:warn>
+			<log:warn>Message to log</log:warn>
 
 * `info`
 	* Description: Writes a message with level _info_ in logger
@@ -91,7 +91,7 @@ by logging level.
 	* Body: Message to be written to logger
 	* Example:
 	
-		<log:info>Message to log</log:info>
+			<log:info>Message to log</log:info>
 		
 * `verbose`
 	* Description: Writes a message with level _verbose_ in logger
@@ -99,7 +99,7 @@ by logging level.
 	* Body: Message to be written to logger
 	* Example:
 	
-		<log:verbose>Message to log</log:verbose>
+			<log:verbose>Message to log</log:verbose>
 		
 * `debug`
 	* Description: Writes a message with level _debug_ in logger
@@ -107,4 +107,4 @@ by logging level.
 	* Body: Message to be written to logger
 	* Example:
 	
-		<log:debug>Message to log</log:debug>
+			<log:debug>Message to log</log:debug>
