@@ -1,3 +1,5 @@
+[Ant]: https://ant.apache.org
+
 # log
 
 Description: These are contributed tasks for logging the [Ant] target or operations.
@@ -26,7 +28,9 @@ by logging level.
 	* Body: N/A
 	* Example:
 
-			<log:init/>
+```xml
+	<log:init/>
+```
 
 * `logger`
 	* Description: Writes a message with level `level` in logger
@@ -46,37 +50,47 @@ by logging level.
 	* Parameters: N/A
 	* Body: Message to be written to logger
 	* Example:
-	
-			<log:error>Message to log</log:error>
+
+```xml
+	<log:error>Message to log</log:error>
+```
 		
 * `warn`
 	* Description: Writes a message with level _warn_ in logger
 	* Parameters: N/A
 	* Body: Message to be written to logger
 	* Example:
-	
-			<log:warn>Message to log</log:warn>
+
+```xml	
+	<log:warn>Message to log</log:warn>
+```
 
 * `info`
 	* Description: Writes a message with level _info_ in logger
 	* Parameters: N/A
 	* Body: Message to be written to logger
 	* Example:
-	
-			<log:info>Message to log</log:info>
+
+```xml	
+	<log:info>Message to log</log:info>
+```
 		
 * `verbose`
 	* Description: Writes a message with level _verbose_ in logger
 	* Parameters: N/A
 	* Body: Message to be written to logger
 	* Example:
-	
-			<log:verbose>Message to log</log:verbose>
+
+```xml
+	<log:verbose>Message to log</log:verbose>
+```
 		
 * `debug`
 	* Description: Writes a message with level _debug_ in logger
 	* Parameters: N/A
 	* Body: Message to be written to logger
 	* Example:
-	
-			<log:debug>Message to log</log:debug>
+
+```xml
+	<log:debug>Message to log</log:debug>
+```
