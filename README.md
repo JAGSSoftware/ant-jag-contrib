@@ -28,7 +28,7 @@ tasks.
 ## Tasks
 Currently are implemented the following categories:
 
-* [log](src/main/resorces/org/jag/common/log/REAME.md)
+* [log](./src/main/resources/org/jag/common/log/REAME.md)
 * property
 * build
 * plugin
