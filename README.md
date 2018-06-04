@@ -66,7 +66,7 @@ by logging level.
 
 	Parameter | Mandatory | Default value | Description
 	--- | --- | --- | ---
-	level | Yes | N/A | Level of logging
+	`level` | Yes | N/A | Level of logging
 
 	* Body: Message to be written to logger
 	* Example:
