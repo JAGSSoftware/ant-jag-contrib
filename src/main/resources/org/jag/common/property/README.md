@@ -9,7 +9,7 @@ Description: Tasks to help working with properties within the [Ant] script.
 The contribution of tasks is done introducing in the script `<project>` tag the location of the tasks definition:
 
 ```xml
-	<project xmlns:prop="antlib:org.jag.common.property" name="...">
+<project xmlns:prop="antlib:org.jag.common.property" name="...">
 ```
 
 * `check`
