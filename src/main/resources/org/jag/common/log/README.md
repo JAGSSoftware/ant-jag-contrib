@@ -1,12 +1,15 @@
 # log
 
 Description: These are contributed tasks for logging the [Ant] target or operations.
+
 **xmlns**: antlib:org.jag.common.log
 
 The contribution of tasks is done introducing in the script `<project>` tag
 the location of the tasks definition:
 
+```xml
 	<project xmlns:log="antlib:org.jag.common.log" name="...">
+```
 
 Unlike any other logging system, the levels of logging is for information only, it doesn't filter
 by logging level.
