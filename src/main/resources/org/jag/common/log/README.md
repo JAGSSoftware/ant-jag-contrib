@@ -42,8 +42,10 @@ by logging level.
 
 	* Body: Message to be written to logger
 	* Example:
-	
-			<log:logger level="error">Message to log</log:logger>
+
+```xml
+	<log:logger level="error">Message to log</log:logger>
+```
 
 * `error`
 	* Description: Writes a message with level _error_ in logger
