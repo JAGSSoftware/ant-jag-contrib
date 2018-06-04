@@ -28,10 +28,10 @@ tasks.
 ## Tasks
 Currently are implemented the following categories:
 
-* [log](./src/main/resources/org/jag/common/log/REAME.md)
-* property
-* build
-* plugin
+* [log](log/README.md)
+* [property](#property)
+* [build](#build)
+* [plugin](#plugin)
 
 ### log
 
@@ -41,7 +41,9 @@ Description: These are contributed tasks for logging the [Ant] target or operati
 The contribution of tasks is done introducing in the script `<project>` tag
 the location of the tasks definition:
 
-	<project xmlns:log="antlib:org.jag.common.log" name="...">
+```xml
+<project xmlns:log="antlib:org.jag.common.log" name="...">
+```
 
 Unlike any other logging system, the levels of logging is for information only, it doesn't filter
 by logging level.
@@ -112,3 +114,9 @@ by logging level.
 	* Example:
 	
 			<log:debug>Message to log</log:debug>
+
+### property
+
+### build
+
+### plugin
